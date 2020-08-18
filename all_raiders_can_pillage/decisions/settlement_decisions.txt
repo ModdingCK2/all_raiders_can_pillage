@@ -450,6 +450,7 @@ settlement_decisions = {
 			OR = {
 				is_nomadic = yes
 				is_tribal = yes
+				is_allowed_to_loot = yes
 			}
 			has_dlc = "Horse Lords"
 		}
@@ -636,7 +637,13 @@ settlement_decisions = {
 			
 			modifier = { # Only for tribal holdings
 				factor = 0
-				NOT = { holding_type = tribal }
+				OR = {
+					NOT = { holding_type = tribal }
+					NOR = {
+						is_nomadic = yes
+						is_tribal = yes
+					}
+				}
 			}
 		}
 	}
